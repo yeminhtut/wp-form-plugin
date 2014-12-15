@@ -71,14 +71,8 @@ function jal_install_data() {
 <?php // shortcode for homepage link
 function retrieve_contest_form() {
 $contest_form = '<div class="wrap">     
-    <form name="oscimp_form" method="post" action="">
-        <input type="hidden" name="" value="">        
-        <p><input type="text" name="" value="" size="20"></p>
-        <p><input type="text" name="" value="" size="20"></p>
-        <p><input type="text" name="" value="" size="20"></p>
-        <p><input type="text" name="" value="" size="20"></p>        
-        <p><input type="text" name="" value="" size="20"></p>
-        <p><input type="text" name="" value="" size="20"></p>     
+    <form name="contest_form" method="post" action="">
+       <input id="name" " type="text"  placeholder="Name">    
         <p class="submit">
         <input type="submit" name="Submit" value="Submit" />
         </p>

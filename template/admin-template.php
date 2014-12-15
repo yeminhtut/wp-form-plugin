@@ -1,17 +1,20 @@
 <?php 
-$result = get_persons_from_contest();
-function get_persons_from_contest(){
-  $dbh=getdbh();
-  $stmt = "SELECT * FROM  `t_contest` LIMIT 0 , 5";  
-  $sql=$dbh->prepare($stmt);
-  $sql->execute();  
-  $result=$sql->fetchAll(PDO::FETCH_ASSOC); 
-  return $result;
-}
-function getdbh(){
-  $dbh = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
-  return $dbh;
-}
+global $wpdb;
+$results = $wpdb->get_results( 'SELECT * FROM t_contest LIMIT 5', OBJECT );
+var_dump($results);exit;
+// $result = get_persons_from_contest();
+// function get_persons_from_contest(){
+//   $dbh=getdbh();
+//   $stmt = "SELECT * FROM  `t_contest` LIMIT 0 , 5";  
+//   $sql=$dbh->prepare($stmt);
+//   $sql->execute();  
+//   $result=$sql->fetchAll(PDO::FETCH_ASSOC); 
+//   return $result;
+// }
+// function getdbh(){
+//   $dbh = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
+//   return $dbh;
+// }
 ?>
 <div class="wrap">
 <form action="" method="get">

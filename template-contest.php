@@ -1,6 +1,5 @@
 <?php 
 $result = get_persons_from_contest();
-//var_dump($result);
 function get_persons_from_contest(){
   $dbh=getdbh();
   $stmt = "SELECT * FROM  `t_contest` LIMIT 0 , 5";  
@@ -9,14 +8,12 @@ function get_persons_from_contest(){
   $result=$sql->fetchAll(PDO::FETCH_ASSOC); 
   return $result;
 }
-
 function getdbh(){
   $dbh = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
   return $dbh;
 }
 ?>
 <div class="wrap">
-
 <form action="" method="get">
 <div class="tablenav top">
 	<div class="tablenav-pages one-page"><span class="displaying-num">1 item</span>

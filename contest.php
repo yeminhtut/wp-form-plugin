@@ -7,6 +7,9 @@
     Version: 1.0
     Author URI: http://www.magdev.tripzilla.com
     */
+if ( ! defined( 'TZ_PLUGIN_DIR' ) )
+	define( 'TZ_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
 add_action( 'admin_menu', 'contest_table' );
 
 function contest_table() {
@@ -15,8 +18,10 @@ function contest_table() {
 }
 function my_plugin_options() {
 	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );	}	
-	//get_template_part( 'partials/template', 'contest' );
+		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+	}	
+	$template_path =  TZ_PLUGIN_DIR . 'template/admin-template.php';
+	include($template_path);
 }
 
 /*Database Creation */
@@ -83,3 +88,5 @@ return $contest_form;
 }
 add_shortcode('contest_form_short_code', 'retrieve_contest_form');
 ?>
+<?php
+ 
